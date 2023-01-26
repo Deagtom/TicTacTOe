@@ -8,7 +8,7 @@
             this.WindowState = FormWindowState.Maximized;
         }
 
-        private void Close()
+        private void CloseGame()
         {
             Menu Menu = new Menu();
             Menu.Show();
@@ -17,7 +17,7 @@
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            Close();
+            CloseGame();
         }
     }
 }
