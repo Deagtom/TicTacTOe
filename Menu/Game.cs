@@ -112,7 +112,7 @@
         {
             if (turnCount == 8)
             {
-                EndGame endGame = new EndGame();
+                EndGame endGame = new();
                 endGame.WinnerColor.Text = "Ничья";
                 endGame.WinnerLabel.Hide();
                 endGame.Show();
@@ -122,7 +122,7 @@
 
         public void RedWin()
         {
-            EndGame endGame = new EndGame();
+            EndGame endGame = new();
             endGame.WinnerColor.Text = "Красный";
             endGame.WinnerColor.Left = (this.ClientSize.Width - endGame.WinnerColor.Width) / 2;
             endGame.WinnerColor.Top = (this.ClientSize.Height - endGame.WinnerColor.Height) / 3;
@@ -133,7 +133,7 @@
 
         public void BlueWin()
         {
-            EndGame endGame = new EndGame();
+            EndGame endGame = new();
             endGame.WinnerColor.Text = "Синий";
             endGame.WinnerColor.Left = (this.ClientSize.Width - endGame.WinnerColor.Width) / 2;
             endGame.WinnerColor.Top = (this.ClientSize.Height - endGame.WinnerColor.Height) / 3;
@@ -142,7 +142,7 @@
             this.Hide();
         }
 
-        public void Click(PictureBox pictureBox)
+        public void ClickTurn(PictureBox pictureBox)
         {
             if (turn == "x" && pictureBox.Image == null)
             {
@@ -162,22 +162,16 @@
             }
         }
 
-        private void ComputerTurn(PictureBox pictureBox)
+        private void CloseGame()
         {
-            Random random = new Random();
-
-        }
-
-        private void Close()
-        {
-            Menu Menu = new Menu();
+            Menu Menu = new();
             Menu.Show();
             this.Hide();
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            Close();
+            CloseGame();
         }
 
         private void CloseButton_MouseEnter(object sender, EventArgs e)
@@ -192,7 +186,7 @@
             CloseButton.BackColor = Color.Transparent;
         }
 
-        private void pictureBox1_Click_1(object sender, EventArgs e)
+        private void TopLeft_Click(object sender, EventArgs e)
         {
             if (turn == "x")
             {
@@ -202,10 +196,10 @@
             {
                 win[0] = "o";
             }
-            Click(pictureBox1);
+            ClickTurn(TopLeftBox);
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void Top_Click(object sender, EventArgs e)
         {
             if (turn == "x")
             {
@@ -215,10 +209,10 @@
             {
                 win[1] = "o";
             }
-            Click(pictureBox2);
+            ClickTurn(TopBox);
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void TopRight_Click(object sender, EventArgs e)
         {
             if (turn == "x")
             {
@@ -228,10 +222,10 @@
             {
                 win[2] = "o";
             }
-            Click(pictureBox3);
+            ClickTurn(TopRightBox);
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void Left_Click(object sender, EventArgs e)
         {
             if (turn == "x")
             {
@@ -241,10 +235,10 @@
             {
                 win[3] = "o";
             }
-            Click(pictureBox4);
+            ClickTurn(LeftBox);
         }
 
-        private void pictureBox5_Click(object sender, EventArgs e)
+        private void Middle_Click(object sender, EventArgs e)
         {
             if (turn == "x")
             {
@@ -254,10 +248,10 @@
             {
                 win[4] = "o";
             }
-            Click(pictureBox5);
+            ClickTurn(MiddleBox);
         }
 
-        private void pictureBox6_Click(object sender, EventArgs e)
+        private void Right_Click(object sender, EventArgs e)
         {
             if (turn == "x")
             {
@@ -267,10 +261,10 @@
             {
                 win[5] = "o";
             }
-            Click(pictureBox6);
+            ClickTurn(RightBox);
         }
 
-        private void pictureBox7_Click(object sender, EventArgs e)
+        private void BottomLeft_Click(object sender, EventArgs e)
         {
             if (turn == "x")
             {
@@ -280,10 +274,10 @@
             {
                 win[6] = "o";
             }
-            Click(pictureBox7);
+            ClickTurn(BottomLeftBox);
         }
 
-        private void pictureBox8_Click(object sender, EventArgs e)
+        private void Bottom_Click(object sender, EventArgs e)
         {
             if (turn == "x")
             {
@@ -293,10 +287,10 @@
             {
                 win[7] = "o";
             }
-            Click(pictureBox8);
+            ClickTurn(BottomBox);
         }
 
-        private void pictureBox9_Click(object sender, EventArgs e)
+        private void BottomRight_Click(object sender, EventArgs e)
         {
             if (turn == "x")
             {
@@ -306,7 +300,7 @@
             {
                 win[8] = "o";
             }
-            Click(pictureBox9);
+            ClickTurn(BottomRightBox);
         }
     }
 }

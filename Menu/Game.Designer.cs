@@ -31,15 +31,15 @@
             this.Background = new System.Windows.Forms.Panel();
             this.WhoTurnPicture = new System.Windows.Forms.PictureBox();
             this.WhoTurn = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BottomRightBox = new System.Windows.Forms.PictureBox();
+            this.BottomBox = new System.Windows.Forms.PictureBox();
+            this.BottomLeftBox = new System.Windows.Forms.PictureBox();
+            this.RightBox = new System.Windows.Forms.PictureBox();
+            this.MiddleBox = new System.Windows.Forms.PictureBox();
+            this.LeftBox = new System.Windows.Forms.PictureBox();
+            this.TopRightBox = new System.Windows.Forms.PictureBox();
+            this.TopBox = new System.Windows.Forms.PictureBox();
+            this.TopLeftBox = new System.Windows.Forms.PictureBox();
             this.firstRow = new System.Windows.Forms.Panel();
             this.secondRow = new System.Windows.Forms.Panel();
             this.secondColumn = new System.Windows.Forms.Panel();
@@ -47,30 +47,30 @@
             this.CloseButton = new System.Windows.Forms.Label();
             this.Background.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WhoTurnPicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BottomRightBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BottomBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BottomLeftBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RightBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MiddleBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LeftBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TopRightBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TopBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TopLeftBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Background
             // 
             this.Background.Controls.Add(this.WhoTurnPicture);
             this.Background.Controls.Add(this.WhoTurn);
-            this.Background.Controls.Add(this.pictureBox9);
-            this.Background.Controls.Add(this.pictureBox8);
-            this.Background.Controls.Add(this.pictureBox7);
-            this.Background.Controls.Add(this.pictureBox6);
-            this.Background.Controls.Add(this.pictureBox5);
-            this.Background.Controls.Add(this.pictureBox4);
-            this.Background.Controls.Add(this.pictureBox3);
-            this.Background.Controls.Add(this.pictureBox2);
-            this.Background.Controls.Add(this.pictureBox1);
+            this.Background.Controls.Add(this.BottomRightBox);
+            this.Background.Controls.Add(this.BottomBox);
+            this.Background.Controls.Add(this.BottomLeftBox);
+            this.Background.Controls.Add(this.RightBox);
+            this.Background.Controls.Add(this.MiddleBox);
+            this.Background.Controls.Add(this.LeftBox);
+            this.Background.Controls.Add(this.TopRightBox);
+            this.Background.Controls.Add(this.TopBox);
+            this.Background.Controls.Add(this.TopLeftBox);
             this.Background.Controls.Add(this.firstRow);
             this.Background.Controls.Add(this.secondRow);
             this.Background.Controls.Add(this.secondColumn);
@@ -104,113 +104,113 @@
             this.WhoTurn.TabIndex = 39;
             this.WhoTurn.Text = "Ход:";
             // 
-            // pictureBox9
+            // BottomRightBox
             // 
-            this.pictureBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox9.Location = new System.Drawing.Point(730, 670);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(270, 270);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 38;
-            this.pictureBox9.TabStop = false;
-            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
+            this.BottomRightBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BottomRightBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BottomRightBox.Location = new System.Drawing.Point(730, 670);
+            this.BottomRightBox.Name = "BottomRightBox";
+            this.BottomRightBox.Size = new System.Drawing.Size(270, 270);
+            this.BottomRightBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BottomRightBox.TabIndex = 38;
+            this.BottomRightBox.TabStop = false;
+            this.BottomRightBox.Click += new System.EventHandler(this.BottomRight_Click);
             // 
-            // pictureBox8
+            // BottomBox
             // 
-            this.pictureBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox8.Location = new System.Drawing.Point(430, 670);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(270, 270);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 37;
-            this.pictureBox8.TabStop = false;
-            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            this.BottomBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BottomBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BottomBox.Location = new System.Drawing.Point(430, 670);
+            this.BottomBox.Name = "BottomBox";
+            this.BottomBox.Size = new System.Drawing.Size(270, 270);
+            this.BottomBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BottomBox.TabIndex = 37;
+            this.BottomBox.TabStop = false;
+            this.BottomBox.Click += new System.EventHandler(this.Bottom_Click);
             // 
-            // pictureBox7
+            // BottomLeftBox
             // 
-            this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox7.Location = new System.Drawing.Point(130, 670);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(270, 270);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 36;
-            this.pictureBox7.TabStop = false;
-            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
+            this.BottomLeftBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BottomLeftBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BottomLeftBox.Location = new System.Drawing.Point(130, 670);
+            this.BottomLeftBox.Name = "BottomLeftBox";
+            this.BottomLeftBox.Size = new System.Drawing.Size(270, 270);
+            this.BottomLeftBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BottomLeftBox.TabIndex = 36;
+            this.BottomLeftBox.TabStop = false;
+            this.BottomLeftBox.Click += new System.EventHandler(this.BottomLeft_Click);
             // 
-            // pictureBox6
+            // RightBox
             // 
-            this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox6.Location = new System.Drawing.Point(730, 370);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(270, 270);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 35;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            this.RightBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.RightBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RightBox.Location = new System.Drawing.Point(730, 370);
+            this.RightBox.Name = "RightBox";
+            this.RightBox.Size = new System.Drawing.Size(270, 270);
+            this.RightBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.RightBox.TabIndex = 35;
+            this.RightBox.TabStop = false;
+            this.RightBox.Click += new System.EventHandler(this.Right_Click);
             // 
-            // pictureBox5
+            // MiddleBox
             // 
-            this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox5.Location = new System.Drawing.Point(430, 370);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(270, 270);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 34;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.MiddleBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.MiddleBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MiddleBox.Location = new System.Drawing.Point(430, 370);
+            this.MiddleBox.Name = "MiddleBox";
+            this.MiddleBox.Size = new System.Drawing.Size(270, 270);
+            this.MiddleBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MiddleBox.TabIndex = 34;
+            this.MiddleBox.TabStop = false;
+            this.MiddleBox.Click += new System.EventHandler(this.Middle_Click);
             // 
-            // pictureBox4
+            // LeftBox
             // 
-            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Location = new System.Drawing.Point(130, 370);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(270, 270);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 33;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.LeftBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LeftBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LeftBox.Location = new System.Drawing.Point(130, 370);
+            this.LeftBox.Name = "LeftBox";
+            this.LeftBox.Size = new System.Drawing.Size(270, 270);
+            this.LeftBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LeftBox.TabIndex = 33;
+            this.LeftBox.TabStop = false;
+            this.LeftBox.Click += new System.EventHandler(this.Left_Click);
             // 
-            // pictureBox3
+            // TopRightBox
             // 
-            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Location = new System.Drawing.Point(730, 70);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(270, 270);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 32;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.TopRightBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TopRightBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TopRightBox.Location = new System.Drawing.Point(730, 70);
+            this.TopRightBox.Name = "TopRightBox";
+            this.TopRightBox.Size = new System.Drawing.Size(270, 270);
+            this.TopRightBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.TopRightBox.TabIndex = 32;
+            this.TopRightBox.TabStop = false;
+            this.TopRightBox.Click += new System.EventHandler(this.TopRight_Click);
             // 
-            // pictureBox2
+            // TopBox
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Location = new System.Drawing.Point(430, 70);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(270, 270);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 31;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.TopBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TopBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TopBox.Location = new System.Drawing.Point(430, 70);
+            this.TopBox.Name = "TopBox";
+            this.TopBox.Size = new System.Drawing.Size(270, 270);
+            this.TopBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.TopBox.TabIndex = 31;
+            this.TopBox.TabStop = false;
+            this.TopBox.Click += new System.EventHandler(this.Top_Click);
             // 
-            // pictureBox1
+            // TopLeftBox
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(130, 70);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(270, 270);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 30;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            this.TopLeftBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TopLeftBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TopLeftBox.Location = new System.Drawing.Point(130, 70);
+            this.TopLeftBox.Name = "TopLeftBox";
+            this.TopLeftBox.Size = new System.Drawing.Size(270, 270);
+            this.TopLeftBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.TopLeftBox.TabIndex = 30;
+            this.TopLeftBox.TabStop = false;
+            this.TopLeftBox.Click += new System.EventHandler(this.TopLeft_Click);
             // 
             // firstRow
             // 
@@ -275,15 +275,15 @@
             this.Background.ResumeLayout(false);
             this.Background.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WhoTurnPicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BottomRightBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BottomBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BottomLeftBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RightBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MiddleBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LeftBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TopRightBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TopBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TopLeftBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -296,15 +296,15 @@
         private Panel secondRow;
         private Panel secondColumn;
         private Panel firstColumn;
-        private PictureBox pictureBox9;
-        private PictureBox pictureBox8;
-        private PictureBox pictureBox7;
-        private PictureBox pictureBox6;
-        private PictureBox pictureBox5;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
+        private PictureBox BottomRightBox;
+        private PictureBox BottomBox;
+        private PictureBox BottomLeftBox;
+        private PictureBox RightBox;
+        private PictureBox MiddleBox;
+        private PictureBox LeftBox;
+        private PictureBox TopRightBox;
+        private PictureBox TopBox;
+        private PictureBox TopLeftBox;
         private PictureBox WhoTurnPicture;
         private Label WhoTurn;
     }
