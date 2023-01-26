@@ -1,17 +1,32 @@
 ﻿namespace Игра
 {
-    public partial class Game : Form
+    public partial class With : Form
     {
-        public Game()
+        public With()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+            Start();
         }
 
         public int turnCount = 0;
         public string turn = "x";
         public string[] win = new string[9];
+        public List<PictureBox> pictureBoxes = new List<PictureBox>();
+        public int indexTurn = 0;
 
+        private void Start()
+        {
+            pictureBoxes.Add(pictureBox1);
+            pictureBoxes.Add(pictureBox2);
+            pictureBoxes.Add(pictureBox3);
+            pictureBoxes.Add(pictureBox4);
+            pictureBoxes.Add(pictureBox5);
+            pictureBoxes.Add(pictureBox6);
+            pictureBoxes.Add(pictureBox7);
+            pictureBoxes.Add(pictureBox8);
+            pictureBoxes.Add(pictureBox9);
+        }
         public void EndGame()
         {
             if (win[0] == win[1] && win[1] == win[2])
@@ -142,30 +157,75 @@
             this.Hide();
         }
 
-        public void Click(PictureBox pictureBox)
+        async Task Click(PictureBox pictureBox)
         {
+            Random random = new Random();
+
             if (turn == "x" && pictureBox.Image == null)
             {
                 pictureBox.Image = Properties.Resources.Крестик;
-                WhoTurnPicture.Image = Properties.Resources.Круг;
+                Bitmap круг = Properties.Resources.Круг;
+                WhoTurnPicture.Image = круг; 
                 EndGame();
                 turn = "o";
                 turnCount += 1;
+                pictureBoxes.Remove(pictureBox);
+                pictureBox.Enabled = false;
             }
-            else if (turn == "o" && pictureBox.Image == null)
+            if (turn == "o")
             {
+                indexTurn = random.Next(pictureBoxes.Count());
+                await Task.Delay(random.Next(200, 1000));
+                pictureBox = pictureBoxes[indexTurn];
+                if (pictureBox == pictureBox1)
+                {
+                    win[0] = "o";
+                }
+                else if (pictureBox == pictureBox2)
+                {
+                    win[1] = "o";
+                }
+                else if (pictureBox == pictureBox3)
+                {
+                    win[2] = "o";
+                }
+                else if (pictureBox == pictureBox4)
+                {
+                    win[3] = "o";
+                }
+                else if (pictureBox == pictureBox5)
+                {
+                    win[4] = "o";
+                }
+                else if (pictureBox == pictureBox6)
+                {
+                    win[5] = "o";
+                }
+                else if (pictureBox == pictureBox7)
+                {
+                    win[6] = "o";
+                }
+                else if (pictureBox == pictureBox8)
+                {
+                    win[7] = "o";
+                }
+                else if (pictureBox == pictureBox9)
+                {
+                    win[8] = "o";
+                }
                 pictureBox.Image = Properties.Resources.Круг;
+                pictureBoxes.Remove(pictureBox);
                 WhoTurnPicture.Image = Properties.Resources.Крестик;
                 EndGame();
                 turn = "x";
                 turnCount += 1;
+                pictureBox.Enabled = false;
             }
         }
 
-        private void ComputerTurn(PictureBox pictureBox)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
-            Random random = new Random();
-
+            Close();
         }
 
         private void Close()
@@ -173,11 +233,6 @@
             Menu Menu = new Menu();
             Menu.Show();
             this.Hide();
-        }
-
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         private void CloseButton_MouseEnter(object sender, EventArgs e)
@@ -198,10 +253,6 @@
             {
                 win[0] = "x";
             }
-            else if (turn == "o")
-            {
-                win[0] = "o";
-            }
             Click(pictureBox1);
         }
 
@@ -210,10 +261,6 @@
             if (turn == "x")
             {
                 win[1] = "x";
-            }
-            else if (turn == "o")
-            {
-                win[1] = "o";
             }
             Click(pictureBox2);
         }
@@ -224,10 +271,6 @@
             {
                 win[2] = "x";
             }
-            else if (turn == "o")
-            {
-                win[2] = "o";
-            }
             Click(pictureBox3);
         }
 
@@ -236,10 +279,6 @@
             if (turn == "x")
             {
                 win[3] = "x";
-            }
-            else if (turn == "o")
-            {
-                win[3] = "o";
             }
             Click(pictureBox4);
         }
@@ -250,10 +289,6 @@
             {
                 win[4] = "x";
             }
-            else if (turn == "o")
-            {
-                win[4] = "o";
-            }
             Click(pictureBox5);
         }
 
@@ -262,10 +297,6 @@
             if (turn == "x")
             {
                 win[5] = "x";
-            }
-            else if (turn == "o")
-            {
-                win[5] = "o";
             }
             Click(pictureBox6);
         }
@@ -276,10 +307,6 @@
             {
                 win[6] = "x";
             }
-            else if (turn == "o")
-            {
-                win[6] = "o";
-            }
             Click(pictureBox7);
         }
 
@@ -289,10 +316,6 @@
             {
                 win[7] = "x";
             }
-            else if (turn == "o")
-            {
-                win[7] = "o";
-            }
             Click(pictureBox8);
         }
 
@@ -301,10 +324,6 @@
             if (turn == "x")
             {
                 win[8] = "x";
-            }
-            else if (turn == "o")
-            {
-                win[8] = "o";
             }
             Click(pictureBox9);
         }
