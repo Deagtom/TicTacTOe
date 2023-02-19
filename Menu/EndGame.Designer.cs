@@ -77,9 +77,9 @@
             this.WinnerColor.Font = new System.Drawing.Font("Segoe UI Semibold", 128.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.WinnerColor.Location = new System.Drawing.Point(432, 302);
             this.WinnerColor.Name = "WinnerColor";
-            this.WinnerColor.Size = new System.Drawing.Size(801, 227);
+            this.WinnerColor.Size = new System.Drawing.Size(599, 227);
             this.WinnerColor.TabIndex = 29;
-            this.WinnerColor.Text = "Красный";
+            this.WinnerColor.Text = "Ничья";
             // 
             // EndGame
             // 

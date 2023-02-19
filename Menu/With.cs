@@ -9,6 +9,7 @@
             Start();
         }
 
+        public bool flag = true;
         public int turnCount = 0;
         public string turn = "x";
         public string[] win = new string[9];
@@ -29,6 +30,7 @@
         }
         public void EndGame()
         {
+            EndGame endGame = new();
             if (win[0] == win[1] && win[1] == win[2])
             {
                 if (win[0] == "x")
@@ -117,17 +119,9 @@
                     BlueWin();
                 }
             }
-            else
+            if (turnCount == 8 && endGame.WinnerColor.Text != "Красный" && endGame.WinnerColor.Text != "Синий")
             {
-                Draw();
-            }
-        }
-
-        public void Draw()
-        {
-            if (turnCount == 8)
-            {
-                EndGame endGame = new();
+                flag = false;
                 endGame.WinnerColor.Text = "Ничья";
                 endGame.WinnerLabel.Hide();
                 endGame.Show();
@@ -137,6 +131,7 @@
 
         public void RedWin()
         {
+            flag = false;
             EndGame endGame = new();
             endGame.WinnerColor.Text = "Красный";
             endGame.WinnerColor.Left = (this.ClientSize.Width - endGame.WinnerColor.Width) / 2;
@@ -148,6 +143,7 @@
 
         public void BlueWin()
         {
+            flag = false;
             EndGame endGame = new();
             endGame.WinnerColor.Text = "Синий";
             endGame.WinnerColor.Left = (this.ClientSize.Width - endGame.WinnerColor.Width) / 2;
@@ -172,7 +168,7 @@
                 pictureBoxes.Remove(pictureBox);
                 pictureBox.Enabled = false;
             }
-            if (turn == "o")
+            if (turn == "o" && flag)
             {
                 indexTurn = random.Next(pictureBoxes.Count());
                 await Task.Delay(random.Next(200, 1000));
