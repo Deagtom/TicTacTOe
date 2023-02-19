@@ -30,7 +30,6 @@
         }
         public void EndGame()
         {
-            EndGame endGame = new();
             if (win[0] == win[1] && win[1] == win[2])
             {
                 if (win[0] == "x")
@@ -119,16 +118,24 @@
                     BlueWin();
                 }
             }
-            if (turnCount == 8 && endGame.WinnerColor.Text != "Красный" && endGame.WinnerColor.Text != "Синий")
+            else
             {
-                flag = false;
+                Draw();
+            }
+        }
+
+        public void Draw()
+        {
+            EndGame endGame = new();
+
+            if (turnCount == 8 && endGame.WinnerColor.Text != "Красный" && endGame.WinnerColor.Text != "Синий" && flag)
+            {
                 endGame.WinnerColor.Text = "Ничья";
                 endGame.WinnerLabel.Hide();
                 endGame.Show();
                 this.Hide();
             }
         }
-
         public void RedWin()
         {
             flag = false;
