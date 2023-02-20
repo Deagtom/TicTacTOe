@@ -11,6 +11,7 @@
 
         private int turnCount = 0;
         private string turn = "x";
+        private bool flag = true;
         private string[] moves = new string[9];
         private PictureBox[] pictureBoxes = new PictureBox[9];
 
@@ -57,8 +58,9 @@
 
         private void Draw()
         {
-            if (turnCount == 8)
+            if (turnCount == 8 && flag)
             {
+                flag = false;
                 EndGame endGame = new();
                 endGame.WinnerColor.Text = "Ничья";
                 endGame.WinnerLabel.Hide();
@@ -69,6 +71,7 @@
 
         private void RedWin()
         {
+            flag = false;
             EndGame endGame = new();
             endGame.WinnerColor.Text = "Красный";
             endGame.WinnerColor.Left = (this.ClientSize.Width - endGame.WinnerColor.Width) / 2;
@@ -80,6 +83,7 @@
 
         private void BlueWin()
         {
+            flag = false;
             EndGame endGame = new();
             endGame.WinnerColor.Text = "Синий";
             endGame.WinnerColor.Left = (this.ClientSize.Width - endGame.WinnerColor.Width) / 2;

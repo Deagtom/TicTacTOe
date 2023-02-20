@@ -1,4 +1,6 @@
-﻿namespace Игра
+﻿using System.Windows.Forms;
+
+namespace Игра
 {
     public partial class With : Form
     {
@@ -9,8 +11,8 @@
             Start();
         }
 
-        Random random = new Random();
-        EndGame endGame = new EndGame();
+        readonly Random random = new Random();
+        readonly EndGame endGame = new EndGame();
 
         private List<PictureBox> pictureBoxes = new List<PictureBox>();
         private string[] moves = new string[9];
@@ -146,7 +148,7 @@
         }
 
         private void TopLeft_Click(object sender, EventArgs e)
-        {
+            {
             ClickTurnX(TopLeftBox);
             _ = ClickTurnO(TopLeftBox);
         }
