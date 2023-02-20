@@ -123,11 +123,11 @@ namespace Игра
             }
         }
 
-        private void ClickTurnO(PictureBox pictureBox)
+        private async Task ClickTurnO(PictureBox pictureBox)
         {
             if (turn == "o" && flag)
             {
-                //await Task.Delay(random.Next(250, 1000));
+                await Task.Delay(random.Next(250, 1000));
                 indexTurn = random.Next(pictureBoxes.Count());
                 pictureBox = pictureBoxes[indexTurn];
                 pictureBox.Image = Properties.Resources.Круг;
@@ -150,55 +150,55 @@ namespace Игра
         private void TopLeft_Click(object sender, EventArgs e)
             {
             ClickTurnX(TopLeftBox);
-            ClickTurnO(TopLeftBox);
+            _ = ClickTurnO(TopLeftBox);
         }
 
         private void Top_Click(object sender, EventArgs e)
         {
             ClickTurnX(TopBox);
-            ClickTurnO(TopBox);
+            _ = ClickTurnO(TopBox);
         }
 
         private void TopRight_Click(object sender, EventArgs e)
         {
             ClickTurnX(TopRightBox);
-            ClickTurnO(TopRightBox);
+            _ = ClickTurnO(TopRightBox);
         }
 
         private void Left_Click(object sender, EventArgs e)
         {
             ClickTurnX(LeftBox);
-            ClickTurnO(LeftBox);
+            _ = ClickTurnO(LeftBox);
         }
 
         private void Middle_Click(object sender, EventArgs e)
         {
             ClickTurnX(MiddleBox);
-            ClickTurnO(MiddleBox);
+            _ = ClickTurnO(MiddleBox);
         }
 
         private void Right_Click(object sender, EventArgs e)
         {
             ClickTurnX(RightBox);
-            ClickTurnO(RightBox);
+            _ = ClickTurnO(RightBox);
         }
 
         private void BottomLeft_Click(object sender, EventArgs e)
         {
             ClickTurnX(BottomLeftBox);
-            ClickTurnO(BottomLeftBox);
+            _ = ClickTurnO(BottomLeftBox);
         }
 
         private void Bottom_Click(object sender, EventArgs e)
         {
             ClickTurnX(BottomBox);
-            ClickTurnO(BottomBox);
+            _ = ClickTurnO(BottomBox);
         }
 
         private void BottomRight_Click(object sender, EventArgs e)
         {
             ClickTurnX(BottomRightBox);
-            ClickTurnO(BottomRightBox);
+            _ = ClickTurnO(BottomRightBox);
         }
 
         private void CloseGame()
