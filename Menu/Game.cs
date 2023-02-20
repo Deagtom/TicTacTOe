@@ -9,11 +9,13 @@
             Start();
         }
 
+        readonly EndGame endGame = new EndGame();
+        readonly private PictureBox[] pictureBoxes = new PictureBox[9];
+
         private int turnCount = 0;
         private string turn = "x";
         private bool flag = true;
         private string[] moves = new string[9];
-        private PictureBox[] pictureBoxes = new PictureBox[9];
 
         private void Start()
         {
@@ -61,7 +63,6 @@
             if (turnCount == 8 && flag)
             {
                 flag = false;
-                EndGame endGame = new();
                 endGame.WinnerColor.Text = "Ничья";
                 endGame.WinnerLabel.Hide();
                 endGame.Show();
@@ -72,7 +73,6 @@
         private void RedWin()
         {
             flag = false;
-            EndGame endGame = new();
             endGame.WinnerColor.Text = "Красный";
             endGame.WinnerColor.Left = (this.ClientSize.Width - endGame.WinnerColor.Width) / 2;
             endGame.WinnerColor.Top = (this.ClientSize.Height - endGame.WinnerColor.Height) / 3;
@@ -84,7 +84,6 @@
         private void BlueWin()
         {
             flag = false;
-            EndGame endGame = new();
             endGame.WinnerColor.Text = "Синий";
             endGame.WinnerColor.Left = (this.ClientSize.Width - endGame.WinnerColor.Width) / 2;
             endGame.WinnerColor.Top = (this.ClientSize.Height - endGame.WinnerColor.Height) / 3;
