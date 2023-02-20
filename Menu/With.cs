@@ -123,11 +123,11 @@ namespace Игра
             }
         }
 
-        private async Task ClickTurnO(PictureBox pictureBox)
+        private void ClickTurnO(PictureBox pictureBox)
         {
             if (turn == "o" && flag)
             {
-                await Task.Delay(random.Next(250, 1000));
+                //await Task.Delay(random.Next(250, 1000));
                 indexTurn = random.Next(pictureBoxes.Count());
                 pictureBox = pictureBoxes[indexTurn];
                 pictureBox.Image = Properties.Resources.Круг;

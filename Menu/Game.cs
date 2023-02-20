@@ -6,21 +6,36 @@
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+            Start();
         }
 
         private int turnCount = 0;
         private string turn = "x";
-        private string[] win = new string[9];
+        private string[] moves = new string[9];
+        private PictureBox[] pictureBoxes = new PictureBox[9];
+
+        private void Start()
+        {
+            pictureBoxes[0] = TopLeftBox;
+            pictureBoxes[1] = TopBox;
+            pictureBoxes[2] = TopRightBox;
+            pictureBoxes[3] = LeftBox;
+            pictureBoxes[4] = MiddleBox;
+            pictureBoxes[5] = RightBox;
+            pictureBoxes[6] = BottomLeftBox;
+            pictureBoxes[7] = BottomBox;
+            pictureBoxes[8] = BottomRightBox;
+        }
 
         private void WinnerTurn(int x, int y, int z)
         {
-            if (win[x] == win[y] && win[y] == win[z])
+            if (moves[x] == moves[y] && moves[y] == moves[z])
             {
-                if (win[x] == "x")
+                if (moves[x] == "x")
                 {
                     RedWin();
                 }
-                else if (win[x] == "o")
+                else if (moves[x] == "o")
                 {
                     BlueWin();
                 }
@@ -80,6 +95,13 @@
             {
                 pictureBox.Image = Properties.Resources.Крестик;
                 WhoTurnPicture.Image = Properties.Resources.Круг;
+                for (int i = 0; i < pictureBoxes.Length; i++)
+                {
+                    if (pictureBox == pictureBoxes[i])
+                    {
+                        moves[i] = "x";
+                    }
+                }
                 EndGame();
                 turn = "o";
                 turnCount += 1;
@@ -88,10 +110,62 @@
             {
                 pictureBox.Image = Properties.Resources.Круг;
                 WhoTurnPicture.Image = Properties.Resources.Крестик;
+                for (int i = 0; i < pictureBoxes.Length; i++)
+                {
+                    if (pictureBox == pictureBoxes[i])
+                    {
+                        moves[i] = "o";
+                    }
+                }
                 EndGame();
                 turn = "x";
                 turnCount += 1;
             }
+        }
+
+        private void TopLeft_Click(object sender, EventArgs e)
+        {
+            ClickTurn(TopLeftBox);
+        }
+
+        private void Top_Click(object sender, EventArgs e)
+        {
+            ClickTurn(TopBox);
+        }
+
+        private void TopRight_Click(object sender, EventArgs e)
+        {
+            ClickTurn(TopRightBox);
+        }
+
+        private void Left_Click(object sender, EventArgs e)
+        {
+            ClickTurn(LeftBox);
+        }
+
+        private void Middle_Click(object sender, EventArgs e)
+        {
+            ClickTurn(MiddleBox);
+        }
+
+        private void Right_Click(object sender, EventArgs e)
+        {
+            ClickTurn(RightBox);
+        }
+
+        private void BottomLeft_Click(object sender, EventArgs e)
+        {
+            ClickTurn(BottomLeftBox);
+        }
+
+        private void Bottom_Click(object sender, EventArgs e)
+        {
+            ClickTurn(BottomBox);
+        }
+
+        private void BottomRight_Click(object sender, EventArgs e)
+        {
+            ClickTurn(BottomRightBox);
         }
 
         private void CloseGame()
@@ -116,123 +190,6 @@
         {
             CloseButton.ForeColor = Color.Black;
             CloseButton.BackColor = Color.Transparent;
-        }
-
-        private void TopLeft_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[0] = "x";
-            }
-            else if (turn == "o")
-            {
-                win[0] = "o";
-            }
-            ClickTurn(TopLeftBox);
-        }
-
-        private void Top_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[1] = "x";
-            }
-            else if (turn == "o")
-            {
-                win[1] = "o";
-            }
-            ClickTurn(TopBox);
-        }
-
-        private void TopRight_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[2] = "x";
-            }
-            else if (turn == "o")
-            {
-                win[2] = "o";
-            }
-            ClickTurn(TopRightBox);
-        }
-
-        private void Left_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[3] = "x";
-            }
-            else if (turn == "o")
-            {
-                win[3] = "o";
-            }
-            ClickTurn(LeftBox);
-        }
-
-        private void Middle_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[4] = "x";
-            }
-            else if (turn == "o")
-            {
-                win[4] = "o";
-            }
-            ClickTurn(MiddleBox);
-        }
-
-        private void Right_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[5] = "x";
-            }
-            else if (turn == "o")
-            {
-                win[5] = "o";
-            }
-            ClickTurn(RightBox);
-        }
-
-        private void BottomLeft_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[6] = "x";
-            }
-            else if (turn == "o")
-            {
-                win[6] = "o";
-            }
-            ClickTurn(BottomLeftBox);
-        }
-
-        private void Bottom_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[7] = "x";
-            }
-            else if (turn == "o")
-            {
-                win[7] = "o";
-            }
-            ClickTurn(BottomBox);
-        }
-
-        private void BottomRight_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[8] = "x";
-            }
-            else if (turn == "o")
-            {
-                win[8] = "o";
-            }
-            ClickTurn(BottomRightBox);
         }
     }
 }
