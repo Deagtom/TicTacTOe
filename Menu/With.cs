@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace Игра
+﻿namespace Игра
 {
     public partial class With : Form
     {
@@ -148,7 +146,7 @@ namespace Игра
         }
 
         private void TopLeft_Click(object sender, EventArgs e)
-            {
+        {
             ClickTurnX(TopLeftBox);
             _ = ClickTurnO(TopLeftBox);
         }
