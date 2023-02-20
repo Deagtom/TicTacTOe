@@ -16,8 +16,10 @@ namespace Игра
 
         private List<PictureBox> pictureBoxes = new List<PictureBox>();
         private string[] moves = new string[9];
+        private PictureBox[] pictureBoxesForMoves = new PictureBox[9];
 
         public string turn = string.Empty;
+        private bool flag = true;
         private int turnCount = 0,
                     indexTurn = 0;
 
@@ -32,6 +34,11 @@ namespace Игра
             pictureBoxes.Add(BottomLeftBox);
             pictureBoxes.Add(BottomBox);
             pictureBoxes.Add(BottomRightBox);
+
+            for (int i = 0; i < pictureBoxesForMoves.Length; i++)
+            {
+                pictureBoxesForMoves[i] = pictureBoxes[i];
+            }
         }
 
         private void WinnerTurn(int x, int y, int z)
@@ -64,8 +71,9 @@ namespace Игра
 
         private void Draw()
         {
-            if (turnCount == 8)
+            if (turnCount == 8 && flag)
             {
+                flag = false;
                 endGame.WinnerColor.Text = "Ничья";
                 endGame.WinnerLabel.Hide();
                 endGame.Show();
@@ -74,6 +82,7 @@ namespace Игра
         }
         private void RedWin()
         {
+            flag = false;
             endGame.WinnerColor.Text = "Красный";
             endGame.WinnerColor.Left = (this.ClientSize.Width - endGame.WinnerColor.Width) / 2;
             endGame.WinnerColor.Top = (this.ClientSize.Height - endGame.WinnerColor.Height) / 3;
@@ -84,6 +93,7 @@ namespace Игра
 
         private void BlueWin()
         {
+            flag = false;
             endGame.WinnerColor.Text = "Синий";
             endGame.WinnerColor.Left = (this.ClientSize.Width - endGame.WinnerColor.Width) / 2;
             endGame.WinnerColor.Top = (this.ClientSize.Height - endGame.WinnerColor.Height) / 3;
@@ -94,13 +104,13 @@ namespace Игра
 
         private void ClickTurnX(PictureBox pictureBox)
         {
-            if (turn == "x" && pictureBox.Image == null)
+            if (turn == "x" && pictureBox.Image == null && flag)
             {
                 pictureBox.Image = Properties.Resources.Крестик;
                 WhoTurnPicture.Image = Properties.Resources.Круг;
-                for (int i = 0; i < pictureBoxes.Count; i++)
+                for (int i = 0; i < pictureBoxesForMoves.Length; i++)
                 {
-                    if (pictureBox == pictureBoxes[i])
+                    if (pictureBox == pictureBoxesForMoves[i])
                     {
                         moves[i] = "x";
                     }
@@ -115,16 +125,16 @@ namespace Игра
 
         private async Task ClickTurnO(PictureBox pictureBox)
         {
-            if (turn == "o" && pictureBoxes.Count != 0)
+            if (turn == "o" && flag)
             {
                 await Task.Delay(random.Next(250, 1000));
                 indexTurn = random.Next(pictureBoxes.Count());
                 pictureBox = pictureBoxes[indexTurn];
                 pictureBox.Image = Properties.Resources.Круг;
                 WhoTurnPicture.Image = Properties.Resources.Крестик;
-                for (int i = 0; i < pictureBoxes.Count; i++)
+                for (int i = 0; i < pictureBoxesForMoves.Length; i++)
                 {
-                    if (pictureBox == pictureBoxes[i])
+                    if (pictureBox == pictureBoxesForMoves[i])
                     {
                         moves[i] = "o";
                     }
@@ -138,7 +148,7 @@ namespace Игра
         }
 
         private void TopLeft_Click(object sender, EventArgs e)
-        {
+            {
             ClickTurnX(TopLeftBox);
             ClickTurnO(TopLeftBox);
         }
