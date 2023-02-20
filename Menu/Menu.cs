@@ -22,8 +22,8 @@
 
         private void StartGameWitchPC_Click(object sender, EventArgs e)
         {
-            With with = new With();
-            with.Show();
+            Turn turn = new Turn();
+            turn.Show();
             this.Hide();
         }
     }

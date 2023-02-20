@@ -8,107 +8,39 @@
             this.WindowState = FormWindowState.Maximized;
         }
 
-        public int turnCount = 0;
-        public string turn = "x";
-        public string[] win = new string[9];
+        private int turnCount = 0;
+        private string turn = "x";
+        private string[] win = new string[9];
 
-        public void EndGame()
+        private void WinnerTurn(int x, int y, int z)
         {
-            if (win[0] == win[1] && win[1] == win[2])
+            if (win[x] == win[y] && win[y] == win[z])
             {
-                if (win[0] == "x")
+                if (win[x] == "x")
                 {
                     RedWin();
                 }
-                else if (win[0] == "o")
+                else if (win[x] == "o")
                 {
                     BlueWin();
                 }
-            }
-            if (win[3] == win[4] && win[4] == win[5])
-            {
-                if (win[3] == "x")
-                {
-                    RedWin();
-                }
-                else if (win[3] == "o")
-                {
-                    BlueWin();
-                }
-            }
-            if (win[6] == win[7] && win[7] == win[8])
-            {
-                if (win[6] == "x")
-                {
-                    RedWin();
-                }
-                else if (win[6] == "o")
-                {
-                    BlueWin();
-                }
-            }
-            if (win[0] == win[3] && win[3] == win[6])
-            {
-                if (win[0] == "x")
-                {
-                    RedWin();
-                }
-                else if (win[0] == "o")
-                {
-                    BlueWin();
-                }
-            }
-            if (win[1] == win[4] && win[4] == win[7])
-            {
-                if (win[1] == "x")
-                {
-                    RedWin();
-                }
-                else if (win[1] == "o")
-                {
-                    BlueWin();
-                }
-            }
-            if (win[2] == win[5] && win[5] == win[8])
-            {
-                if (win[2] == "x")
-                {
-                    RedWin();
-                }
-                else if (win[2] == "o")
-                {
-                    BlueWin();
-                }
-            }
-            if (win[0] == win[4] && win[4] == win[8])
-            {
-                if (win[0] == "x")
-                {
-                    RedWin();
-                }
-                else if (win[0] == "o")
-                {
-                    BlueWin();
-                }
-            }
-            if (win[2] == win[4] && win[4] == win[6])
-            {
-                if (win[2] == "x")
-                {
-                    RedWin();
-                }
-                else if (win[2] == "o")
-                {
-                    BlueWin();
-                }
-            }
-            else
-            {
-                Draw();
             }
         }
 
-        public void Draw()
+        private void EndGame()
+        {
+            WinnerTurn(0, 1, 2);
+            WinnerTurn(3, 4, 5);
+            WinnerTurn(6, 7, 8);
+            WinnerTurn(0, 3, 6);
+            WinnerTurn(1, 4, 7);
+            WinnerTurn(2, 5, 8);
+            WinnerTurn(0, 4, 8);
+            WinnerTurn(2, 4, 6);
+            Draw();
+        }
+
+        private void Draw()
         {
             if (turnCount == 8)
             {
@@ -120,7 +52,7 @@
             }
         }
 
-        public void RedWin()
+        private void RedWin()
         {
             EndGame endGame = new();
             endGame.WinnerColor.Text = "Красный";
@@ -131,7 +63,7 @@
             this.Hide();
         }
 
-        public void BlueWin()
+        private void BlueWin()
         {
             EndGame endGame = new();
             endGame.WinnerColor.Text = "Синий";
@@ -142,7 +74,7 @@
             this.Hide();
         }
 
-        public void ClickTurn(PictureBox pictureBox)
+        private void ClickTurn(PictureBox pictureBox)
         {
             if (turn == "x" && pictureBox.Image == null)
             {

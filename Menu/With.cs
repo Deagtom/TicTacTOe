@@ -1,4 +1,6 @@
-﻿namespace Игра
+﻿using System.Windows.Forms;
+
+namespace Игра
 {
     public partial class With : Form
     {
@@ -9,12 +11,15 @@
             Start();
         }
 
-        public bool flag = true;
-        public int turnCount = 0;
-        public string turn = "x";
-        public string[] win = new string[9];
-        public List<PictureBox> pictureBoxes = new();
-        public int indexTurn = 0;
+        Random random = new Random();
+        EndGame endGame = new EndGame();
+
+        private List<PictureBox> pictureBoxes = new List<PictureBox>();
+        private string[] moves = new string[9];
+
+        public string turn = string.Empty;
+        private int turnCount = 0,
+                    indexTurn = 0;
 
         private void Start()
         {
@@ -28,107 +33,38 @@
             pictureBoxes.Add(BottomBox);
             pictureBoxes.Add(BottomRightBox);
         }
-        public void EndGame()
+
+        private void WinnerTurn(int x, int y, int z)
         {
-            if (win[0] == win[1] && win[1] == win[2])
+            if (moves[x] == moves[y] && moves[y] == moves[z])
             {
-                if (win[0] == "x")
+                if (moves[x] == "x")
                 {
                     RedWin();
                 }
-                else if (win[0] == "o")
+                else if (moves[x] == "o")
                 {
                     BlueWin();
                 }
-            }
-            if (win[3] == win[4] && win[4] == win[5])
-            {
-                if (win[3] == "x")
-                {
-                    RedWin();
-                }
-                else if (win[3] == "o")
-                {
-                    BlueWin();
-                }
-            }
-            if (win[6] == win[7] && win[7] == win[8])
-            {
-                if (win[6] == "x")
-                {
-                    RedWin();
-                }
-                else if (win[6] == "o")
-                {
-                    BlueWin();
-                }
-            }
-            if (win[0] == win[3] && win[3] == win[6])
-            {
-                if (win[0] == "x")
-                {
-                    RedWin();
-                }
-                else if (win[0] == "o")
-                {
-                    BlueWin();
-                }
-            }
-            if (win[1] == win[4] && win[4] == win[7])
-            {
-                if (win[1] == "x")
-                {
-                    RedWin();
-                }
-                else if (win[1] == "o")
-                {
-                    BlueWin();
-                }
-            }
-            if (win[2] == win[5] && win[5] == win[8])
-            {
-                if (win[2] == "x")
-                {
-                    RedWin();
-                }
-                else if (win[2] == "o")
-                {
-                    BlueWin();
-                }
-            }
-            if (win[0] == win[4] && win[4] == win[8])
-            {
-                if (win[0] == "x")
-                {
-                    RedWin();
-                }
-                else if (win[0] == "o")
-                {
-                    BlueWin();
-                }
-            }
-            if (win[2] == win[4] && win[4] == win[6])
-            {
-                if (win[2] == "x")
-                {
-                    RedWin();
-                }
-                else if (win[2] == "o")
-                {
-                    BlueWin();
-                }
-            }
-            else
-            {
-                Draw();
             }
         }
 
-        public void Draw()
+        private void EndGame()
         {
-            EndGame endGame = new();
+            WinnerTurn(0, 1, 2);
+            WinnerTurn(3, 4, 5);
+            WinnerTurn(6, 7, 8);
+            WinnerTurn(0, 3, 6);
+            WinnerTurn(1, 4, 7);
+            WinnerTurn(2, 5, 8);
+            WinnerTurn(0, 4, 8);
+            WinnerTurn(2, 4, 6);
+            Draw();
+        }
 
-            if (turnCount == 8 && endGame.WinnerColor.Text != "Красный" && endGame.WinnerColor.Text != "Синий" && flag)
+        private void Draw()
+        {
+            if (turnCount == 8)
             {
                 endGame.WinnerColor.Text = "Ничья";
                 endGame.WinnerLabel.Hide();
@@ -136,10 +72,8 @@
                 this.Hide();
             }
         }
-        public void RedWin()
+        private void RedWin()
         {
-            flag = false;
-            EndGame endGame = new();
             endGame.WinnerColor.Text = "Красный";
             endGame.WinnerColor.Left = (this.ClientSize.Width - endGame.WinnerColor.Width) / 2;
             endGame.WinnerColor.Top = (this.ClientSize.Height - endGame.WinnerColor.Height) / 3;
@@ -148,10 +82,8 @@
             this.Hide();
         }
 
-        public void BlueWin()
+        private void BlueWin()
         {
-            flag = false;
-            EndGame endGame = new();
             endGame.WinnerColor.Text = "Синий";
             endGame.WinnerColor.Left = (this.ClientSize.Width - endGame.WinnerColor.Width) / 2;
             endGame.WinnerColor.Top = (this.ClientSize.Height - endGame.WinnerColor.Height) / 3;
@@ -160,75 +92,103 @@
             this.Hide();
         }
 
-        async Task ClickTurn(PictureBox pictureBox)
+        private void ClickTurnX(PictureBox pictureBox)
         {
-            Random random = new();
-
             if (turn == "x" && pictureBox.Image == null)
             {
                 pictureBox.Image = Properties.Resources.Крестик;
-                Bitmap круг = Properties.Resources.Круг;
-                WhoTurnPicture.Image = круг;
+                WhoTurnPicture.Image = Properties.Resources.Круг;
+                for (int i = 0; i < pictureBoxes.Count; i++)
+                {
+                    if (pictureBox == pictureBoxes[i])
+                    {
+                        moves[i] = "x";
+                    }
+                }
                 EndGame();
                 turn = "o";
                 turnCount += 1;
                 pictureBoxes.Remove(pictureBox);
                 pictureBox.Enabled = false;
             }
-            if (turn == "o" && flag)
+        }
+
+        private async Task ClickTurnO(PictureBox pictureBox)
+        {
+            if (turn == "o" && pictureBoxes.Count != 0)
             {
+                await Task.Delay(random.Next(250, 1000));
                 indexTurn = random.Next(pictureBoxes.Count());
-                await Task.Delay(random.Next(200, 1000));
                 pictureBox = pictureBoxes[indexTurn];
-                if (pictureBox == TopLeftBox)
-                {
-                    win[0] = "o";
-                }
-                else if (pictureBox == TopBox)
-                {
-                    win[1] = "o";
-                }
-                else if (pictureBox == TopRightBox)
-                {
-                    win[2] = "o";
-                }
-                else if (pictureBox == LeftBox)
-                {
-                    win[3] = "o";
-                }
-                else if (pictureBox == MiddleBox)
-                {
-                    win[4] = "o";
-                }
-                else if (pictureBox == RightBox)
-                {
-                    win[5] = "o";
-                }
-                else if (pictureBox == BottomLeftBox)
-                {
-                    win[6] = "o";
-                }
-                else if (pictureBox == BottomBox)
-                {
-                    win[7] = "o";
-                }
-                else if (pictureBox == BottomRightBox)
-                {
-                    win[8] = "o";
-                }
                 pictureBox.Image = Properties.Resources.Круг;
-                pictureBoxes.Remove(pictureBox);
                 WhoTurnPicture.Image = Properties.Resources.Крестик;
+                for (int i = 0; i < pictureBoxes.Count; i++)
+                {
+                    if (pictureBox == pictureBoxes[i])
+                    {
+                        moves[i] = "o";
+                    }
+                }
                 EndGame();
                 turn = "x";
                 turnCount += 1;
+                pictureBoxes.Remove(pictureBox);
                 pictureBox.Enabled = false;
             }
         }
 
-        private void CloseButton_Click(object sender, EventArgs e)
+        private void TopLeft_Click(object sender, EventArgs e)
         {
-            CloseGame();
+            ClickTurnX(TopLeftBox);
+            ClickTurnO(TopLeftBox);
+        }
+
+        private void Top_Click(object sender, EventArgs e)
+        {
+            ClickTurnX(TopBox);
+            ClickTurnO(TopBox);
+        }
+
+        private void TopRight_Click(object sender, EventArgs e)
+        {
+            ClickTurnX(TopRightBox);
+            ClickTurnO(TopRightBox);
+        }
+
+        private void Left_Click(object sender, EventArgs e)
+        {
+            ClickTurnX(LeftBox);
+            ClickTurnO(LeftBox);
+        }
+
+        private void Middle_Click(object sender, EventArgs e)
+        {
+            ClickTurnX(MiddleBox);
+            ClickTurnO(MiddleBox);
+        }
+
+        private void Right_Click(object sender, EventArgs e)
+        {
+            ClickTurnX(RightBox);
+            ClickTurnO(RightBox);
+        }
+
+        private void BottomLeft_Click(object sender, EventArgs e)
+        {
+            ClickTurnX(BottomLeftBox);
+            ClickTurnO(BottomLeftBox);
+        }
+
+        private void Bottom_Click(object sender, EventArgs e)
+        {
+            ClickTurnX(BottomBox);
+            ClickTurnO(BottomBox);
+        }
+
+        private void BottomRight_Click(object sender, EventArgs e)
+        {
+            ClickTurnX(BottomRightBox);
+            ClickTurnO(BottomRightBox);
         }
 
         private void CloseGame()
@@ -236,6 +196,11 @@
             Menu Menu = new();
             Menu.Show();
             this.Hide();
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            CloseGame();
         }
 
         private void CloseButton_MouseEnter(object sender, EventArgs e)
@@ -248,87 +213,6 @@
         {
             CloseButton.ForeColor = Color.Black;
             CloseButton.BackColor = Color.Transparent;
-        }
-
-        private void TopLeft_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[0] = "x";
-            }
-            ClickTurn(TopLeftBox);
-        }
-
-        private void Top_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[1] = "x";
-            }
-            ClickTurn(TopBox);
-        }
-
-        private void TopRight_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[2] = "x";
-            }
-            ClickTurn(TopRightBox);
-        }
-
-        private void Left_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[3] = "x";
-            }
-            ClickTurn(LeftBox);
-        }
-
-        private void Middle_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[4] = "x";
-            }
-            ClickTurn(MiddleBox);
-        }
-
-        private void Right_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[5] = "x";
-            }
-            ClickTurn(RightBox);
-        }
-
-        private void BottomLeft_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[6] = "x";
-            }
-            ClickTurn(BottomLeftBox);
-        }
-
-        private void Bottom_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[7] = "x";
-            }
-            ClickTurn(BottomBox);
-        }
-
-        private void BottomRight_Click(object sender, EventArgs e)
-        {
-            if (turn == "x")
-            {
-                win[8] = "x";
-            }
-            ClickTurn(BottomRightBox);
         }
     }
 }
