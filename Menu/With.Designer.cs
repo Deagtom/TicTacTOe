@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.Background = new System.Windows.Forms.Panel();
-            this.WhoTurnPicture = new System.Windows.Forms.PictureBox();
-            this.WhoTurn = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Label();
             this.BottomRightBox = new System.Windows.Forms.PictureBox();
             this.BottomBox = new System.Windows.Forms.PictureBox();
@@ -46,7 +44,6 @@
             this.secondColumn = new System.Windows.Forms.Panel();
             this.firstColumn = new System.Windows.Forms.Panel();
             this.Background.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.WhoTurnPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BottomRightBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BottomBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BottomLeftBox)).BeginInit();
@@ -60,8 +57,6 @@
             // 
             // Background
             // 
-            this.Background.Controls.Add(this.WhoTurnPicture);
-            this.Background.Controls.Add(this.WhoTurn);
             this.Background.Controls.Add(this.CloseButton);
             this.Background.Controls.Add(this.BottomRightBox);
             this.Background.Controls.Add(this.BottomBox);
@@ -82,28 +77,6 @@
             this.Background.Size = new System.Drawing.Size(1500, 1000);
             this.Background.TabIndex = 0;
             // 
-            // WhoTurnPicture
-            // 
-            this.WhoTurnPicture.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.WhoTurnPicture.Image = global::Игра.Properties.Resources.Крестик;
-            this.WhoTurnPicture.Location = new System.Drawing.Point(1189, 225);
-            this.WhoTurnPicture.Name = "WhoTurnPicture";
-            this.WhoTurnPicture.Size = new System.Drawing.Size(172, 172);
-            this.WhoTurnPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.WhoTurnPicture.TabIndex = 54;
-            this.WhoTurnPicture.TabStop = false;
-            // 
-            // WhoTurn
-            // 
-            this.WhoTurn.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.WhoTurn.AutoSize = true;
-            this.WhoTurn.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.WhoTurn.Location = new System.Drawing.Point(1217, 138);
-            this.WhoTurn.Name = "WhoTurn";
-            this.WhoTurn.Size = new System.Drawing.Size(131, 65);
-            this.WhoTurn.TabIndex = 53;
-            this.WhoTurn.Text = "Ход:";
-            // 
             // CloseButton
             // 
             this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -123,7 +96,7 @@
             // 
             this.BottomRightBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BottomRightBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BottomRightBox.Location = new System.Drawing.Point(735, 672);
+            this.BottomRightBox.Location = new System.Drawing.Point(887, 673);
             this.BottomRightBox.Name = "BottomRightBox";
             this.BottomRightBox.Size = new System.Drawing.Size(270, 270);
             this.BottomRightBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -135,7 +108,7 @@
             // 
             this.BottomBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BottomBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BottomBox.Location = new System.Drawing.Point(435, 672);
+            this.BottomBox.Location = new System.Drawing.Point(587, 673);
             this.BottomBox.Name = "BottomBox";
             this.BottomBox.Size = new System.Drawing.Size(270, 270);
             this.BottomBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -147,7 +120,7 @@
             // 
             this.BottomLeftBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BottomLeftBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BottomLeftBox.Location = new System.Drawing.Point(135, 672);
+            this.BottomLeftBox.Location = new System.Drawing.Point(287, 673);
             this.BottomLeftBox.Name = "BottomLeftBox";
             this.BottomLeftBox.Size = new System.Drawing.Size(270, 270);
             this.BottomLeftBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -159,7 +132,7 @@
             // 
             this.RightBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RightBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RightBox.Location = new System.Drawing.Point(735, 372);
+            this.RightBox.Location = new System.Drawing.Point(887, 373);
             this.RightBox.Name = "RightBox";
             this.RightBox.Size = new System.Drawing.Size(270, 270);
             this.RightBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -171,7 +144,7 @@
             // 
             this.MiddleBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MiddleBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MiddleBox.Location = new System.Drawing.Point(435, 372);
+            this.MiddleBox.Location = new System.Drawing.Point(587, 373);
             this.MiddleBox.Name = "MiddleBox";
             this.MiddleBox.Size = new System.Drawing.Size(270, 270);
             this.MiddleBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -183,7 +156,7 @@
             // 
             this.LeftBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LeftBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LeftBox.Location = new System.Drawing.Point(135, 372);
+            this.LeftBox.Location = new System.Drawing.Point(287, 373);
             this.LeftBox.Name = "LeftBox";
             this.LeftBox.Size = new System.Drawing.Size(270, 270);
             this.LeftBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -195,7 +168,7 @@
             // 
             this.TopRightBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TopRightBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TopRightBox.Location = new System.Drawing.Point(735, 72);
+            this.TopRightBox.Location = new System.Drawing.Point(887, 73);
             this.TopRightBox.Name = "TopRightBox";
             this.TopRightBox.Size = new System.Drawing.Size(270, 270);
             this.TopRightBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -207,7 +180,7 @@
             // 
             this.TopBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TopBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TopBox.Location = new System.Drawing.Point(435, 72);
+            this.TopBox.Location = new System.Drawing.Point(587, 73);
             this.TopBox.Name = "TopBox";
             this.TopBox.Size = new System.Drawing.Size(270, 270);
             this.TopBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -219,7 +192,7 @@
             // 
             this.TopLeftBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TopLeftBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TopLeftBox.Location = new System.Drawing.Point(135, 72);
+            this.TopLeftBox.Location = new System.Drawing.Point(287, 73);
             this.TopLeftBox.Name = "TopLeftBox";
             this.TopLeftBox.Size = new System.Drawing.Size(270, 270);
             this.TopLeftBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -231,7 +204,7 @@
             // 
             this.firstRow.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.firstRow.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.firstRow.Location = new System.Drawing.Point(135, 342);
+            this.firstRow.Location = new System.Drawing.Point(287, 343);
             this.firstRow.Name = "firstRow";
             this.firstRow.Size = new System.Drawing.Size(870, 30);
             this.firstRow.TabIndex = 42;
@@ -240,7 +213,7 @@
             // 
             this.secondRow.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.secondRow.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.secondRow.Location = new System.Drawing.Point(135, 642);
+            this.secondRow.Location = new System.Drawing.Point(287, 643);
             this.secondRow.Name = "secondRow";
             this.secondRow.Size = new System.Drawing.Size(870, 30);
             this.secondRow.TabIndex = 40;
@@ -249,7 +222,7 @@
             // 
             this.secondColumn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.secondColumn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.secondColumn.Location = new System.Drawing.Point(705, 72);
+            this.secondColumn.Location = new System.Drawing.Point(857, 73);
             this.secondColumn.Name = "secondColumn";
             this.secondColumn.Size = new System.Drawing.Size(30, 870);
             this.secondColumn.TabIndex = 41;
@@ -258,7 +231,7 @@
             // 
             this.firstColumn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.firstColumn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.firstColumn.Location = new System.Drawing.Point(405, 72);
+            this.firstColumn.Location = new System.Drawing.Point(557, 73);
             this.firstColumn.Name = "firstColumn";
             this.firstColumn.Size = new System.Drawing.Size(30, 870);
             this.firstColumn.TabIndex = 39;
@@ -274,7 +247,6 @@
             this.Text = "With";
             this.Background.ResumeLayout(false);
             this.Background.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.WhoTurnPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BottomRightBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BottomBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BottomLeftBox)).EndInit();
@@ -304,8 +276,6 @@
         private Panel secondRow;
         private Panel secondColumn;
         private Panel firstColumn;
-        private PictureBox WhoTurnPicture;
-        private Label WhoTurn;
         private Label CloseButton;
     }
 }

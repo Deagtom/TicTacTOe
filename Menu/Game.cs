@@ -6,11 +6,12 @@
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+
             Start();
         }
 
-        readonly EndGame endGame = new EndGame();
-        readonly private PictureBox[] pictureBoxes = new PictureBox[9];
+        private readonly EndGame endGame = new EndGame();
+        private readonly PictureBox[] pictureBoxes = new PictureBox[9];
 
         private int turnCount = 0;
         private string turn = "x";

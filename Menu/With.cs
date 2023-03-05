@@ -11,10 +11,10 @@ namespace Игра
             Start();
         }
 
-        readonly Random random = new Random();
-        readonly EndGame endGame = new EndGame();
+        private readonly Random random = new Random();
+        private readonly EndGame endGame = new EndGame();
 
-        private List<PictureBox> pictureBoxes = new List<PictureBox>();
+        public List<PictureBox> pictureBoxes = new List<PictureBox>();
         private string[] moves = new string[9];
         private PictureBox[] pictureBoxesForMoves = new PictureBox[9];
 
@@ -107,7 +107,6 @@ namespace Игра
             if (turn == "x" && pictureBox.Image == null && flag)
             {
                 pictureBox.Image = Properties.Resources.Крестик;
-                WhoTurnPicture.Image = Properties.Resources.Круг;
                 for (int i = 0; i < pictureBoxesForMoves.Length; i++)
                 {
                     if (pictureBox == pictureBoxesForMoves[i])
@@ -123,15 +122,13 @@ namespace Игра
             }
         }
 
-        private async Task ClickTurnO(PictureBox pictureBox)
+        public void ClickTurnO(PictureBox pictureBox)
         {
             if (turn == "o" && flag)
             {
-                await Task.Delay(random.Next(250, 1000));
                 indexTurn = random.Next(pictureBoxes.Count());
                 pictureBox = pictureBoxes[indexTurn];
                 pictureBox.Image = Properties.Resources.Круг;
-                WhoTurnPicture.Image = Properties.Resources.Крестик;
                 for (int i = 0; i < pictureBoxesForMoves.Length; i++)
                 {
                     if (pictureBox == pictureBoxesForMoves[i])
@@ -150,55 +147,55 @@ namespace Игра
         private void TopLeft_Click(object sender, EventArgs e)
             {
             ClickTurnX(TopLeftBox);
-            _ = ClickTurnO(TopLeftBox);
+            ClickTurnO(TopLeftBox);
         }
 
         private void Top_Click(object sender, EventArgs e)
         {
             ClickTurnX(TopBox);
-            _ = ClickTurnO(TopBox);
+            ClickTurnO(TopBox);
         }
 
         private void TopRight_Click(object sender, EventArgs e)
         {
             ClickTurnX(TopRightBox);
-            _ = ClickTurnO(TopRightBox);
+            ClickTurnO(TopRightBox);
         }
 
         private void Left_Click(object sender, EventArgs e)
         {
             ClickTurnX(LeftBox);
-            _ = ClickTurnO(LeftBox);
+            ClickTurnO(LeftBox);
         }
 
         private void Middle_Click(object sender, EventArgs e)
         {
             ClickTurnX(MiddleBox);
-            _ = ClickTurnO(MiddleBox);
+            ClickTurnO(MiddleBox);
         }
 
         private void Right_Click(object sender, EventArgs e)
         {
             ClickTurnX(RightBox);
-            _ = ClickTurnO(RightBox);
+            ClickTurnO(RightBox);
         }
 
         private void BottomLeft_Click(object sender, EventArgs e)
         {
             ClickTurnX(BottomLeftBox);
-            _ = ClickTurnO(BottomLeftBox);
+            ClickTurnO(BottomLeftBox);
         }
 
         private void Bottom_Click(object sender, EventArgs e)
         {
             ClickTurnX(BottomBox);
-            _ = ClickTurnO(BottomBox);
+            ClickTurnO(BottomBox);
         }
 
         private void BottomRight_Click(object sender, EventArgs e)
         {
             ClickTurnX(BottomRightBox);
-            _ = ClickTurnO(BottomRightBox);
+            ClickTurnO(BottomRightBox);
         }
 
         private void CloseGame()
