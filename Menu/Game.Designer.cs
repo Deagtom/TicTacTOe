@@ -85,7 +85,7 @@
             // WhoTurnPicture
             // 
             this.WhoTurnPicture.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.WhoTurnPicture.Image = global::Игра.Properties.Resources.Крестик;
+            this.WhoTurnPicture.Image = global::TicTacToe.Properties.Resources.Крестик;
             this.WhoTurnPicture.Location = new System.Drawing.Point(1189, 224);
             this.WhoTurnPicture.Name = "WhoTurnPicture";
             this.WhoTurnPicture.Size = new System.Drawing.Size(172, 172);

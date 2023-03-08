@@ -1,4 +1,6 @@
-﻿namespace Игра
+﻿using TicTacToe.Properties;
+
+namespace Игра
 {
     public partial class Game : Form
     {
@@ -97,8 +99,8 @@
         {
             if (turn == "x" && pictureBox.Image == null)
             {
-                pictureBox.Image = Properties.Resources.Крестик;
-                WhoTurnPicture.Image = Properties.Resources.Круг;
+                pictureBox.Image = Resources.Крестик;
+                WhoTurnPicture.Image = Resources.Круг;
                 for (int i = 0; i < pictureBoxes.Length; i++)
                 {
                     if (pictureBox == pictureBoxes[i])
@@ -112,8 +114,8 @@
             }
             else if (turn == "o" && pictureBox.Image == null)
             {
-                pictureBox.Image = Properties.Resources.Круг;
-                WhoTurnPicture.Image = Properties.Resources.Крестик;
+                pictureBox.Image = Resources.Круг;
+                WhoTurnPicture.Image = Resources.Крестик;
                 for (int i = 0; i < pictureBoxes.Length; i++)
                 {
                     if (pictureBox == pictureBoxes[i])

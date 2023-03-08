@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using TicTacToe.Properties;
 
 namespace Игра
 {
@@ -106,7 +107,7 @@ namespace Игра
         {
             if (turn == "x" && pictureBox.Image == null && flag)
             {
-                pictureBox.Image = Properties.Resources.Крестик;
+                pictureBox.Image = Resources.Крестик;
                 for (int i = 0; i < pictureBoxesForMoves.Length; i++)
                 {
                     if (pictureBox == pictureBoxesForMoves[i])
@@ -128,7 +129,7 @@ namespace Игра
             {
                 indexTurn = random.Next(pictureBoxes.Count());
                 pictureBox = pictureBoxes[indexTurn];
-                pictureBox.Image = Properties.Resources.Круг;
+                pictureBox.Image = Resources.Круг;
                 for (int i = 0; i < pictureBoxesForMoves.Length; i++)
                 {
                     if (pictureBox == pictureBoxesForMoves[i])
@@ -145,7 +146,7 @@ namespace Игра
         }
 
         private void TopLeft_Click(object sender, EventArgs e)
-            {
+        {
             ClickTurnX(TopLeftBox);
             ClickTurnO(TopLeftBox);
         }
